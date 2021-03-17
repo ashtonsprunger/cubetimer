@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube Timer</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="main">
+        <div id='top-center'>
+            <button id='start' class="start">START</button>
+            <div id='main-time' class="main-time time"></div>
+        </div>
+
+        <div class="timers">
+            <div class="timer">
+                <input class='time-el' type="text" placeholder="Name...">
+                <div id='time-a' class="time time-el">---------
+                </div>
+                <button id='stop-a' class="stop time-el">STOP</button>
+            </div>
+    
+            <div class="timer">
+                <input class="time-el" type="text" placeholder="Name...">
+                <div id='time-b' class="time time-el">---------
+                </div>
+                <button id='stop-b' class="stop time-el">STOP</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
