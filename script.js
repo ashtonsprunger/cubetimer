@@ -34,7 +34,7 @@ const updateTimes = () => {
   )}:${pad(
     Math.floor(((Date.now() - START_TIME) % (1000 * 60)) / 1000),
     2
-  )}.${Math.floor(((Date.now() - START_TIME) / 100) % 10)}`;
+  )}.${pad(Math.floor(((Date.now() - START_TIME) / 10) % 100), 2)}`;
   if (A_STOP && B_STOP) {
     window.clearInterval(updateInterval);
     RUNNING = false;
@@ -55,7 +55,7 @@ const startTimer = () => {
     START_TIME = Date.now();
     //   console.log(START_TIME);
     updateTimes();
-    updateInterval = setInterval(updateTimes, 100);
+    updateInterval = setInterval(updateTimes, 20);
   }
 };
 
