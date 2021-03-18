@@ -54,6 +54,7 @@ const startTimer = () => {
     startButton.style.display = "none";
     START_TIME = Date.now();
     //   console.log(START_TIME);
+    updateTimes();
     updateInterval = setInterval(updateTimes, 100);
   }
 };
@@ -67,7 +68,7 @@ const firstStop = () => {
     )}:${pad(
       Math.floor(((Date.now() - START_TIME) % (1000 * 60)) / 1000),
       2
-    )}.${Math.floor(((Date.now() - START_TIME) / 100) % 10)}`;
+    )}.${pad(Math.floor(((Date.now() - START_TIME) / 10) % 100), 2)}`;
   }
 };
 
@@ -80,7 +81,7 @@ const secondStop = () => {
     )}:${pad(
       Math.floor(((Date.now() - START_TIME) % (1000 * 60)) / 1000),
       2
-    )}.${Math.floor(((Date.now() - START_TIME) / 100) % 10)}`;
+    )}.${pad(Math.floor(((Date.now() - START_TIME) / 10) % 100), 2)}`;
   }
 };
 
