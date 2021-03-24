@@ -53,7 +53,7 @@ const renderTimes = () => {
   )}:${pad((timeBA % (1000 * 60)) / 1000, 2)}`;
 
   timesA.map((time) => {
-    let h3 = document.createElement("h3");
+    let h3 = document.createElement("h2");
     h3.innerHTML = `${pad(
       Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)),
       2
@@ -61,7 +61,7 @@ const renderTimes = () => {
     timesAEl.appendChild(h3);
   });
   timesB.map((time) => {
-    let h3 = document.createElement("h3");
+    let h3 = document.createElement("h2");
     h3.innerHTML = `${pad(
       Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)),
       2
@@ -73,17 +73,18 @@ const renderTimes = () => {
 function pad(num, size) {
   num = num.toString();
   while (num.split(".")[0].length < size) num = "0" + num;
+  if (num.split(".")[1]) {
+    while (num.split(".")[1].length < 3) num = num + "0";
+  }
   return num;
 }
 
 const updateTimes = () => {
+  let time = Date.now() - START_TIME;
   mainTime.innerHTML = `${pad(
-    Math.floor(((Date.now() - START_TIME) % (1000 * 60 * 60)) / (1000 * 60)),
+    Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)),
     2
-  )}:${pad(
-    Math.floor(((Date.now() - START_TIME) % (1000 * 60)) / 1000),
-    2
-  )}.${pad(Math.floor(((Date.now() - START_TIME) / 10) % 100), 2)}`;
+  )}:${pad((time % (1000 * 60)) / 1000, 2)}`;
   if (A_STOP && B_STOP) {
     renderTimes();
     window.clearInterval(updateInterval);
@@ -105,7 +106,7 @@ const startTimer = () => {
     START_TIME = Date.now();
     //   console.log(START_TIME);
     updateTimes();
-    updateInterval = setInterval(updateTimes, 20);
+    updateInterval = setInterval(updateTimes, 27);
   }
 };
 
