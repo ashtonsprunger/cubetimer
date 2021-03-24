@@ -88,3 +88,13 @@ button {
   text-align: center;
   line-height: 30px;
 }
+
+.average {
+  text-align: center;
+  line-height: 30px;
+  color: rgb(214, 139, 0);
+}
+
+.times :first-child {
+  color: red;
+}
